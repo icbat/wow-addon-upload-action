@@ -1,0 +1,13 @@
+name: 'Upload WoW Addon to WoW Interface'
+description: "Packages and uploads addons for Blizzard's World of Warcraft to WoW Interface"
+author: 'icbat'
+inputs:
+  token:
+    description: 'Your personal, secret API token. Generated here:  https://www.wowinterface.com/downloads/filecpl.php?action=apitokens'
+    required: true
+outputs:
+  id:
+    description: 'The ID of the file created.' 
+runs:
+  using: 'node12'
+  main: 'wowinterface-upload.js'

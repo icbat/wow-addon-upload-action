@@ -1,2 +1,2 @@
 # wow-addon-upload-action
-A GitHub Action to Zip and Upload your WoW addon repo
+A GitHub Action upload your a .zip of your WoW Addon to WoW Interface

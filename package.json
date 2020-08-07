@@ -1,0 +1,24 @@
+{
+  "name": "wow-addon-upload-action",
+  "version": "1.0.0",
+  "description": "A GitHub Action upload your a .zip of your WoW Addon to WoW Interface",
+  "main": "wowinterface-upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icbat/wow-addon-upload-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icbat/wow-addon-upload-action/issues"
+  },
+  "homepage": "https://github.com/icbat/wow-addon-upload-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "got": "^11.5.2"
+  }
+}

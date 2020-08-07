@@ -1,11 +1,9 @@
-const fs = require('fs')
 
+const fs = require('fs')
 const core = require('@actions/core')
 const got = require('got')
+const FormData = require('form-data')
 
-
-// const zipFilePath = core.getInput('zipFile', { required: true })
-const apiKey = process.env.WOW_INTERFACE || core.getInput('WOW_INTERFACE', { required: true })
 
 // Example payload from the failed request
 // const payload = {
@@ -54,10 +52,10 @@ const apiKey = process.env.WOW_INTERFACE || core.getInput('WOW_INTERFACE', { req
 
 // Wrap in async function to allow awaiting
 async function main() {
-    const form = {
-        "id": 25623,
-    }
-
+    core.debug('Validating inputs')
+    // const zipFilePath = core.getInput('zipFile', { required: true })
+    const apiKey = process.env.WOW_INTERFACE || core.getInput('WOW_INTERFACE', { required: true })
+    
     const versions = await got.get('https://api.wowinterface.com/addons/compatible.json', {
         headers: {
             'x-api-token': apiKey
@@ -70,9 +68,13 @@ async function main() {
 
     console.log(JSON.stringify(versions, null, 4))
 
-    core.info('Updating addon')
+    core.debug('Building the FormData payload')
+    const body = new FormData()
+    body.append('id', 25623)
+
+    core.info('Uploading/Updating addon')
     const result = await got.post('https://api.wowinterface.com/addons/update', {
-        form,
+        body,
         headers: {
             'x-api-token': apiKey
         }

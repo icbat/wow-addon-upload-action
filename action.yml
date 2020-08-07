@@ -1,13 +1,22 @@
 name: 'Upload WoW Addon to WoW Interface'
-description: "Packages and uploads addons for Blizzard's World of Warcraft to WoW Interface"
+description: "Uploads your addon for Blizzard's World of Warcraft to WoW Interface"
 author: 'icbat'
 inputs:
-  token:
-    description: 'Your personal, secret API token. Generated here:  https://www.wowinterface.com/downloads/filecpl.php?action=apitokens'
+  apiKey:
+    description: 'Your personal, super-secret API key from WoW Interface. Generated here: https://www.wowinterface.com/downloads/filecpl.php?action=apitokens'
     required: true
-outputs:
   id:
-    description: 'The ID of the file created.' 
+    description: 'The ID of your project/addon on WoW Interface. Found in the URL for your addon: https://www.wowinterface.com/downloads/info<THE ID>-MyCoolAddon.html'
+    required: true
+  version:
+    description: 'Your version for your addon. Should increment with every new upload.'
+    required: true
+  compatible:
+    description: ' A comma delimited list of WoW versions that your addon will work on. See: https://api.wowinterface.com/addons/compatible.json'
+    required: true
+  zipFilePath:
+    description: 'The path to the zip file of your bundled up addon'
+    required: true
 runs:
   using: 'node12'
   main: 'wowinterface-upload.js'

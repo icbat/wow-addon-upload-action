@@ -9,7 +9,7 @@ async function main() {
     const id = core.getInput('id', { required: true })
     const version = core.getInput('version', { required: true })
     const compatible = core.getInput('compatible', { required: true })
-    const zipFilePath = core.getInput('zipFile', { required: true })
+    const zipFilePath = core.getInput('zipFilePath', { required: true })
     const apiKey = process.env.WOW_INTERFACE || core.getInput('apiKey', { required: true })
 
     core.debug('Validating inputs')

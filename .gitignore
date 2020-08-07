@@ -1,3 +1,6 @@
+# Don't check in the secret, but keep it for ezpz development
+secret.txt
+
 # Logs
 logs
 *.log

@@ -56,14 +56,19 @@ const apiKey = process.env.WOW_INTERFACE || core.getInput('WOW_INTERFACE', { req
 async function main() {
     const form = {
         "id": 25623,
-        "description": `This addon constantly checks the LFG panel for potential bonus loot for the roles you've specified.
-
-It needs an LDB display addon to function. I recommend either ChocolateBar.
-
-The broker data display shows how many Random Dungeons are offering a bonus reward for your role right now, as well as how many Looking For Raid instances offer a bonus reward for your role right now.
-
-Feedback? Leave an [URL="https://github.com/icbat/broker-call-to-arms"]Issue on Github[/URL]`,
     }
+
+    const versions = await got.get('https://api.wowinterface.com/addons/compatible.json', {
+        headers: {
+            'x-api-token': apiKey
+        }
+    }).json()
+
+    // TODO check for version in the list of compatible versions
+    // split the CDL, check each one is in the list
+    // if one is wrong, give them the URL to go look at what's available.
+
+    console.log(JSON.stringify(versions, null, 4))
 
     core.info('Updating addon')
     const result = await got.post('https://api.wowinterface.com/addons/update', {

@@ -19,13 +19,13 @@ async function main() {
         }
     }).json()
 
-    // Of the "80307" format
-    const comaptibleVersionStrings = versions.map(vObj => vObj.interface)
+    // Of the "9.1.5" format
+    const compatibleVersionStrings = versions.map(vObj => vObj.id)
 
     const userInputVersions = compatible.split(',')
     for (const vers of userInputVersions) {
-        if (!comaptibleVersionStrings.includes(vers)) {
-            return core.setFailed(`Argument 'compatible' contains an invalid value:  ${vers}. Please visit https://api.wowinterface.com/addons/compatible.json to see possible values`)
+        if (!compatibleVersionStrings.includes(vers)) {
+            return core.setFailed(`Argument 'compatible' contains an invalid value:  ${vers}. Available values are from WoW Interface and are:  ${compatibleVersionStrings.join(' ')}`)
         }
     }
 

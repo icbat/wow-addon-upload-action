@@ -1,6 +1,6 @@
 {
   "name": "wow-addon-upload-action",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A GitHub Action upload your a .zip of your WoW Addon to WoW Interface",
   "main": "wowinterface-upload.js",
   "scripts": {

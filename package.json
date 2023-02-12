@@ -20,6 +20,6 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "form-data": "^3.0.0",
-    "got": "^11.5.2"
+    "got": "^12.5.3"
   }
 }
